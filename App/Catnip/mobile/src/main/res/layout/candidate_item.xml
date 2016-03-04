@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:id="@+id/candicon"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Barbara Boxer"
+        android:id="@+id/candidateName"
+        android:layout_alignTop="@+id/candicon"
+        android:layout_toEndOf="@+id/candicon"
+        android:layout_marginLeft="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="EMAIL"
+        android:id="@+id/textView4"
+        android:textStyle="bold"
+        android:textColor="#1e88e5"
+        android:layout_alignBottom="@+id/candicon"
+        android:layout_alignStart="@+id/twitterIcon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="WEB"
+        android:id="@+id/textView5"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4"
+        android:textStyle="bold"
+        android:layout_marginLeft="80dp"
+        android:textColor="#1e88e5" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/partyView"
+        android:layout_alignTop="@+id/candicon"
+        android:layout_alignEnd="@+id/candicon"
+        android:layout_marginTop="-4dp"
+        android:layout_marginRight="-4dp" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/twitterIcon"
+        android:layout_below="@+id/candidateName"
+        android:layout_toEndOf="@+id/candicon"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/twitter" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/twitter"
+        android:layout_alignTop="@+id/twitterIcon"
+        android:layout_toEndOf="@+id/twitterIcon"
+        android:layout_marginLeft="5dp" />
+
+</RelativeLayout>

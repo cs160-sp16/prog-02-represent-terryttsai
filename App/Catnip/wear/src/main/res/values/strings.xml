@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Catnip</string>
+    <string name="hello_round">Hello Round World!</string>
+    <string name="hello_square">Hello Square World!</string>
+    <string name="title_activity_rep_main">RepMain</string>
+    <string name="title_activity_reps">Reps</string>
+</resources>
