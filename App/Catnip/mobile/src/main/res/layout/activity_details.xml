@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Barbara Boxer"
-        android:id="@+id/nameText"
+        android:id="@+id/detailView"
         android:layout_below="@+id/detailView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
@@ -33,7 +33,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Democrat"
         android:id="@+id/partyText"
-        android:layout_below="@+id/nameText"
+        android:layout_below="@+id/detailView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="3dp" />
 
@@ -52,122 +52,19 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Committees"
-        android:id="@+id/bills"
+        android:id="@+id/committees"
         android:layout_alignParentStart="true"
         android:textColor="#009688"
         android:layout_marginLeft="20dp"
         android:layout_below="@+id/termText"
         android:layout_marginTop="30dp" />
 
-    <TextView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Super Shady Committee"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/bills"
-        android:layout_alignStart="@+id/bills"
-        android:layout_marginTop="10dp"
-        android:textColor="#1e88e5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Give Me Money Committee"
-        android:id="@+id/textView3"
-        android:layout_marginLeft="0dp"
-        android:layout_below="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_marginTop="5dp"
-        android:textColor="#1e88e5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Closed Doors 4 Lyfe Committee"
-        android:id="@+id/textView6"
-        android:layout_marginLeft="0dp"
-        android:layout_below="@+id/textView3"
-        android:layout_alignStart="@+id/textView3"
-        android:layout_marginTop="5dp"
-        android:textColor="#1e88e5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Bills"
-        android:id="@+id/textView7"
-        android:textColor="#009688"
-        android:layout_below="@+id/textView6"
-        android:layout_alignStart="@+id/textView6"
-        android:layout_marginTop="25dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Spy On America Act"
-        android:id="@+id/textView8"
-        android:layout_below="@+id/textView7"
-        android:layout_alignStart="@+id/textView7"
-        android:layout_marginTop="10dp"
-        android:textColor="#1e88e5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="All&apos;s Fair in Welfare Act"
-        android:id="@+id/textView9"
-        android:layout_marginLeft="0dp"
-        android:layout_below="@+id/textView8"
-        android:layout_alignStart="@+id/textView8"
-        android:layout_marginTop="5dp"
-        android:textColor="#1e88e5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Too Bad You&apos;re Poor Tax"
-        android:id="@+id/textView10"
-        android:layout_marginLeft="0dp"
-        android:layout_below="@+id/textView9"
-        android:layout_alignStart="@+id/textView9"
-        android:layout_marginTop="5dp"
-        android:textColor="#1e88e5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="6/16/2015"
-        android:id="@+id/textView11"
-        android:layout_above="@+id/textView9"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="20dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="3/23/2015"
-        android:id="@+id/textView12"
-        android:layout_below="@+id/textView11"
-        android:layout_alignEnd="@+id/textView11"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="8/14/2014"
-        android:id="@+id/textView13"
-        android:layout_below="@+id/textView12"
-        android:layout_alignEnd="@+id/textView12"
-        android:layout_marginTop="5dp" />
+        android:id="@+id/listCommittees"
+        android:layout_below="@+id/committees"
+        android:layout_alignStart="@+id/committees"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

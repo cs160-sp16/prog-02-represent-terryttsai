@@ -4,4 +4,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_find_my_rep_home">FindMyRepHome</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="google_app_id">catnip-29a5</string>
+    <string name="title_activity_location">LocationActivity</string>
+    <string name="get_location">Where am I?</string>
 </resources>

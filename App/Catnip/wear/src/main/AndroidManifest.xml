@@ -3,6 +3,9 @@
     package="com.cs160.joleary.catnip">
 
     <uses-feature android:name="android.hardware.type.watch" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COURSE_LOCATION"/>
 
     <meta-data
         android:name="com.google.android.gms.version"
@@ -38,7 +41,19 @@
             android:label="@string/title_activity_rep_main" />
         <activity
             android:name=".Reps"
-            android:label="@string/title_activity_reps"></activity>
+            android:label="@string/title_activity_reps"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC9USiG8cV6XwGWaNZtFg8Y2UcIsLp8vzg"/>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="eb21017f26cd5218d3cd2abe40d848ab04094287" />
     </application>
 
 </manifest>

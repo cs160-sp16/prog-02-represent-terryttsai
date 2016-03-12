@@ -92,7 +92,16 @@ public class MyFragment extends Fragment implements GoogleApiClient.ConnectionCa
 
         backgroundView.setBackgroundResource(background);
 
-        backgroundView.setOnClickListener(new View.OnClickListener() {
+//        backgroundView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getActivity(), "Tapped! " + message, Toast.LENGTH_SHORT).show();
+//                //insert send to phone function here
+//                sendMessage(WEAR_MESSAGE_PATH, message);
+//            }
+//        });
+
+        v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Tapped! " + message, Toast.LENGTH_SHORT).show();

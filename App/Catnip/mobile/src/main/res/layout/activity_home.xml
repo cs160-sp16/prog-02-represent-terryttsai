@@ -2,20 +2,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/linear"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
-        <TextView
+        <com.twitter.sdk.android.core.identity.TwitterLoginButton
+            android:id="@+id/twitter_login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Welcome!"
-            android:id="@+id/textView"
+            android:layout_centerInParent="true"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="50dp" />
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="100dp" />
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -51,8 +54,23 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Get Location"
+            android:id="@+id/countyButton"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="GO"
             android:id="@+id/go"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Location"
+            android:id="@+id/locationText"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
 </RelativeLayout>

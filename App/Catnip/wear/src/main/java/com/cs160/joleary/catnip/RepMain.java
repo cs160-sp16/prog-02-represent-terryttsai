@@ -1,11 +1,14 @@
 package com.cs160.joleary.catnip;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.location.LocationListener;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
@@ -20,8 +23,19 @@ import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.Node;
 import com.google.android.gms.wearable.NodeApi;
 import com.google.android.gms.wearable.Wearable;
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+
+import org.json.JSONArray;
+
+import io.fabric.sdk.android.Fabric;
 
 public class RepMain extends Activity implements MessageApi.MessageListener, GoogleApiClient.ConnectionCallbacks {
+
+    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+    private static final String TWITTER_KEY = "mHS7vcmYV5kVJU83fkrvDL7fG";
+    private static final String TWITTER_SECRET = "LY0GCQTGypTXaXgRzFvN70uHVYthUCzoidtcv9756q3pwtLAXZ";
+
 
     private Button mFeedBtn;
     private ArrayAdapter<String> mAdapter;
@@ -35,10 +49,14 @@ public class RepMain extends Activity implements MessageApi.MessageListener, Goo
     private static final String START_ACTIVITY = "/start_activity";
     private static final String WEAR_MESSAGE_PATH = "/message";
 
+    //private static String TAG = LocationActivity.class.getSimpleName();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        Fabric.with(this, new Twitter(authConfig));
         setContentView(R.layout.activity_rep_main3);
         final Context context = this;
 
@@ -65,10 +83,11 @@ public class RepMain extends Activity implements MessageApi.MessageListener, Goo
                 Toast.makeText(RepMain.this, "Random location!", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(context, Reps.class);
-                intent.putExtra("zipNum", "99999");
+                intent.putExtra("zipNum", "21221");
                 startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -82,10 +101,10 @@ public class RepMain extends Activity implements MessageApi.MessageListener, Goo
                 .addApi(Wearable.API)
                 .addConnectionCallbacks(this)
                 .build();
-        mApiClient.connect();
-
-//        if (mApiClient != null && !(mApiClient.isConnected() || mApiClient.isConnecting()))
-//            mApiClient.connect();
+//        mApiClient.connect();
+//
+        if (mApiClient != null && !(mApiClient.isConnected() || mApiClient.isConnecting()))
+            mApiClient.connect();
     }
 
     @Override
@@ -100,18 +119,20 @@ public class RepMain extends Activity implements MessageApi.MessageListener, Goo
 
     @Override
     protected void onStart() {
+        mApiClient.connect(); //added
         super.onStart();
     }
 
     @Override
     public void onMessageReceived(final MessageEvent messageEvent) {
+        Log.d("T", "in RepMain, got: " + messageEvent.getPath());
         final Context context = this;
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if (messageEvent.getPath().equalsIgnoreCase(WEAR_MESSAGE_PATH)) {
-//                    mAdapter.add(new String(messageEvent.getData()));
-//                    mAdapter.notifyDataSetChanged();
+                    //mAdapter.add(new String(messageEvent.getData())); //comment out?
+                    //mAdapter.notifyDataSetChanged(); //comment out?
                     String zip = new String(messageEvent.getData());
 
                     Toast.makeText(RepMain.this, "Received zip: " + zip, Toast.LENGTH_SHORT).show();
@@ -123,19 +144,19 @@ public class RepMain extends Activity implements MessageApi.MessageListener, Goo
         });
     }
 
-    private void sendMessage( final String path, final String text ) {
-        new Thread( new Runnable() {
-            @Override
-            public void run() {
-                NodeApi.GetConnectedNodesResult nodes = Wearable.NodeApi.getConnectedNodes( mApiClient ).await();
-                for(Node node : nodes.getNodes()) {
-                    MessageApi.SendMessageResult result = Wearable.MessageApi.sendMessage(
-                            mApiClient, node.getId(), path, text.getBytes() ).await();
-                }
-
-            }
-        }).start();
-    }
+//    private void sendMessage( final String path, final String text ) {
+//        new Thread( new Runnable() {
+//            @Override
+//            public void run() {
+//                NodeApi.GetConnectedNodesResult nodes = Wearable.NodeApi.getConnectedNodes( mApiClient ).await();
+//                for(Node node : nodes.getNodes()) {
+//                    MessageApi.SendMessageResult result = Wearable.MessageApi.sendMessage(
+//                            mApiClient, node.getId(), path, text.getBytes() ).await();
+//                }
+//
+//            }
+//        }).start();
+//    }
 
     @Override
     public void onConnected( Bundle bundle ) {
